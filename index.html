@@ -13,44 +13,27 @@
 </head>
 <body>
     <div id="container">
-        <div class="header">
+
+        <!--Header-->
+        <div id="header">
                 <img id="header-logo" src="images/bookshelf.svg" alt="bookshelf icon">
                 <h1 id="website-title">Odin's Library</h1>
         </div>
 
-        <div class="main">
-            <section id="description-section">
-                <p>
-                    As part of <a href="https://www.theodinproject.com/lessons/node-path-javascript-library">@theOdinProject</a>, I developed a small Library app.
-                </p>
+
+        <!--Main: add books and show them responsive as cards-->
+        <div id="main">
+            <section class="button-section">
+                <button id="addBook">+ add Book</button>
             </section>
+            <section class="content-section">
 
-            <section id="action-section">
-                <button id="addBook">+ Add Book</button>
-            </section>
-            
-            <section id="library-section">
-                <div class="card">
-
-                    <div id="card-content">
-                        <h1 id="bookTitle">Title</h1>
-                        <p id="bookAuthor">Author: </p>
-                        <p id="bookPages">Pages: </p>
-                    </div>
-
-                    <div id="bookButtons">
-                        
-                        <input id="bookButton-Read" type="button" value="read" class="not read">
-
-                        <input id="bookButton-Remove" type="button" value="remove">
-                    </div>
-
-                 </div>
-               
             </section>
         </div>
 
-        <div class="footer">
+        
+        <!--Footer-->
+        <div id="footer">
             <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/JoKu21/odin-library" target="
                 ">joku.dev</a></p>
         </div>
