@@ -1,3 +1,8 @@
+let title = 'Unknown1';
+let author = 'Unknown2';
+let pages = '0';
+let read = true;
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -8,12 +13,12 @@ function Book(title, author, pages, read) {
     //Constructor
 }
 
-function addBookToLibrary(title, author, pages) {
-    let a = title;
-    let b = author;
-    let c = pages;
-    console.log(a);
-    myLibrary.push(new Book(a, b, c));
+function addBookToLibrary() {
+    title = document.getElementById('bookTitleInput').value;
+    author = document.getElementById('bookAuthorInput').value;
+    pages = document.getElementById('bookPagesInput').value;
+    
+    myLibrary.push(new Book(title, author, pages, read));
     console.log(myLibrary);
     //do stuff here
 }
@@ -114,11 +119,9 @@ function createForm() {
         document.getElementById('main').removeChild(newForm);
     })
 
+    //Create Book Function
     addBookButton.addEventListener('click', () => {
-        let title = titleInput.textContent;
-        let author = authorInput.textContent;
-        let pages = pagesInput.textContent;
-        addBookToLibrary(title, author, pages);
+        addBookToLibrary();
         document.getElementById('main').removeChild(newForm);
     })
 }
