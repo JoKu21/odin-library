@@ -35,6 +35,14 @@ a:hover {
     flex-direction: column;
     height: 100vh;
     gap: 2rem;
+    justify-content: space-between;
+}
+
+/*Wrapper-Section*/
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 /*header-section*/
@@ -77,11 +85,57 @@ a:hover {
     font-weight: bold;
 }
 
+#addBook:hover {
+    background: var(--header-color);
+    color: white;
+}
+
+/*Content-Section*/
+#content-section {
+    width: 80vw;
+    padding-top: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 12rem);
+    justify-content: center;
+    gap: 1rem;
+}
+
+/*Create Card*/
+.card {
+    height: 16rem;
+    width: 12rem;
+    background-color: var(white);
+    border: 2px solid var(--header-color);
+    border-radius: 15px;
+    box-shadow: 3px 3px var(--header-color);
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h1 {
+    z-index: 5;
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.card h2, h3 {
+    font-size: .75rem;
+    color: #006064;
+}
+
+
 /*footer-section*/
+#footer-wrapper {
+    display: block;
+}
+
 #footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
-    margin-top: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -150,7 +204,8 @@ a:hover {
 }
 
 #formAddBookButton,
-#cancelButton {
+#cancelButton,
+.card button {
     background-color: white;
     color: var(--header-color);
     padding: .25rem .5rem;
@@ -162,7 +217,8 @@ a:hover {
 }
 
 #cancelButton:hover,
-#formAddBookButton:hover {
+#formAddBookButton:hover,
+.card button:hover {
     background-color: var(--header-color);
     color: white;
 }

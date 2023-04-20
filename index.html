@@ -14,28 +14,29 @@
 <body>
     <div id="container">
 
-        <!--Header-->
-        <div id="header">
-                <img id="header-logo" src="images/bookshelf.svg" alt="bookshelf icon">
-                <h1 id="website-title">Odin's Library</h1>
-        </div>
-
-
-        <!--Main: add books and show them responsive as cards-->
-        <div id="main">
-            <section class="button-section">
-                <button id="addBook" onclick="createForm(title, author, pages, read)">+ add Book</button>
-            </section>
-            <section class="content-section">
-
-            </section>
+        <div class="wrapper">
+            <!--Header-->
+            <div id="header">
+                    <img id="header-logo" src="images/bookshelf.svg" alt="bookshelf icon">
+                    <h1 id="website-title">Odin's Library</h1>
+            </div>
+            <!--Main: add books and show them responsive as cards-->
+            <div id="main">
+                <section class="button-section">
+                    <button id="addBook" onclick="createForm(title, author, pages, read)">+ add Book</button>
+                </section>
+                <section id="content-section">
+                </section>
+            </div>
         </div>
 
         
         <!--Footer-->
-        <div id="footer">
-            <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/JoKu21/odin-library" target="
-                ">joku.dev</a></p>
+        <div id="footer-wrapper">
+            <div id="footer">
+                <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/JoKu21/odin-library" target="
+                    ">joku.dev</a></p>
+            </div>
         </div>
     </div>
 </body>
