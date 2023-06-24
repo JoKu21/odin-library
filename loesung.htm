@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--############################### Beschreibung Start ###############################
+      Dieser Lösungsansatz hilft, die Bibliotheks-App zu schreiben. Schwerpunkt liegt hier auf der for-Schleife
+      und dem reinen Anzeige des Array-Inhaltes. Dies wird erreicht, da mit jedem Refresh, der Div-Inhalt gecleared wird
+      und somit nur das abgebildet werden kann, was auch wirklich im Array vorhanden ist. Damit stimmen auch alle Positionen
+      im Index durchgehend überein.
+  --############################### Beschreibung Ende ###############################-->
+  <h1>Kleiner Array-Test</h1>
+
+  <button type="button" id="showArray">Zeig das Array</button>
+  
+  <br><br>
+  <input type="text" name="arrayInput" id="arrayInput">
+  <button type="button" id="pushArray">push to Array</button>
+
+  <div id="outputBox"></div>
+
+  <!--############################### SCRIPT ###############################-->
+  <script>
+    //Array
+    let testArray = [1,2,3,4,"test",5];
+
+    //Darstellung des Arrays
+    document.getElementById('showArray').addEventListener("click", showArrayFunction);
+    
+    function showArrayFunction() {
+      document.getElementById('outputBox').textContent = "";
+
+      for(i=0; i<testArray.length; i++) {
+        const a = document.createElement('p');
+        a.setAttribute('id', 'para');
+        a.textContent = testArray[i];
+        document.getElementById('outputBox').appendChild(a);
+      }
+    }
+
+    //Neues Element hinzufügen
+    document.getElementById('pushArray').onclick = function () {
+      let newElement = document.getElementById('arrayInput').value;
+      testArray.push(newElement);
+    }
+  </script>
+</body>
+</html>
