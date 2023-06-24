@@ -43,7 +43,7 @@
 }
 
 /* ----- Button-Section ----- */
-#newBook {
+#createBook {
     font-size: 1.5rem;
     padding: .5rem 1rem;
     border: 1px solid var(--second-color);
@@ -54,14 +54,16 @@
     display: block;
 }
 
-#newBook:hover {
+#createBook:hover,
+#newForm button:hover {
     background-color: var(--second-color);
     color: var(--text-color-1);
     border: 1px solid var(--text-color-2);
     cursor: pointer;
 }
 
-#newBook:active {
+#createBook:active,
+#newForm button:active {
     box-shadow: 1px 1px 1px var(--first-color);
 }
 
@@ -70,9 +72,70 @@
     background-color: var(--fourth-color);
     width: 80vw;
     min-height: calc(100vh - 21rem);
+    display: flex;
+    justify-content: center;
 }
 
 /* ----- Formular ----- */
+#newForm {
+    border: 2px solid var(--first-color);
+    background-color: var(--fourth-color);
+    min-height: 20rem;
+    max-height: 25rem;
+    width: 15rem;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    position: relative;
+    top: -5rem;
+    padding: 1rem;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+    width: 90%;
+    
+}
+
+.form-wrapper:last-child {
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#newForm label {
+    color: white;
+    font-size: 1.5rem;
+}
+
+#newForm input {
+    font-size: .8rem;
+    padding: .25rem;
+    color: var(--first-color);
+}
+
+#newForm button {
+    font-size: .8rem;
+    width: 6rem;
+    padding: .25rem;
+    border: 1px solid var(--second-color);
+    border-radius: 20px;
+    background-color: var(--text-color-1);
+    color: var(--first-color);
+}
+
+
 
 /* ----- Card ----- */
 
