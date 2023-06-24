@@ -2,9 +2,10 @@
 let myLibrary = [];
 
 //Initial example books
-addBookToLibrary('Herr der Ringe','J.R.R. Tolkien','695');
-addBookToLibrary('Harry Potter','J.K. Rowling','720');
-addBookToLibrary('Der Herr der Inge','Don Mucklon LLC','69');
+addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695');
+addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720');
+addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69');
+
 
 //Book-Constructor
 function Book(title, author, pages) {
@@ -23,9 +24,9 @@ function addBookToLibrary(title, author, pages) {
 
 //Function to show array
 function update() {
-    for(i=0; i<myLibrary.length;i++) {
-        console.dir(myLibrary[i]);
-    }
+    console.dir(myLibrary);
+    output.textContent = "";
+    createCard();
 }
 
 //Create Form
@@ -116,9 +117,21 @@ function createForm() {
 
     //Button functions
     createBookButton.onclick = function() {
-        addBookToLibrary(titleInput.value, authorInput.value, pageInput.value);
-        output.removeChild(newForm);
-        update();
+        if(titleInput.value == ""){
+            titleInput.focus();
+            titleInput.style.backgroundColor = 'red';
+        }else if(authorInput.value == ""){
+            authorInput.focus();
+            authorInput.style.cssText = 'background: red;'
+        }else if(pageInput.value == ""){
+            pageInput.focus();
+            pageInput.style.cssText ='background: red';
+        } else {
+            addBookToLibrary(titleInput.value, authorInput.value, pageInput.value);
+            output.removeChild(newForm);
+            createCard();
+            update();
+        }
     }
 
     cancelFormButton.onclick = function() {
@@ -128,11 +141,74 @@ function createForm() {
 
 //Function Create Cards
 function createCard() {
+    output.textContent = "";
+
+    for(i=0; i<myLibrary.length; i++) {
+        const cardWrapper = document.createElement('div');
+        cardWrapper.setAttribute('id', 'card-wrapper');
+        output.append(cardWrapper);
     
+        //Title
+        const newCardTitle = document.createElement('div');
+        const newTitleOutput = document.createElement('p');
+    
+        newCardTitle.setAttribute('class', 'card-wrapper');
+    
+        newTitleOutput.setAttribute('id', 'newTitleOutput');
+        newTitleOutput.textContent = myLibrary[i].title;
+    
+        cardWrapper.appendChild(newCardTitle);
+        newCardTitle.appendChild(newTitleOutput);
+    
+        //Author
+        const newCardAuthor = document.createElement('div');
+        const newAuthorOutput = document.createElement('p');
+    
+        newCardAuthor.setAttribute('class', 'card-wrapper');
+    
+        newAuthorOutput.setAttribute('id', 'newAuthorOutput');
+        newAuthorOutput.textContent = 'Author: ' + myLibrary[i].author;
+    
+        cardWrapper.appendChild(newCardAuthor);
+        newCardAuthor.appendChild(newAuthorOutput);
+    
+        //Pages
+        const newCardPage = document.createElement('div');
+        const newPageOutput = document.createElement('p');
+    
+        newCardPage.setAttribute('class', 'card-wrapper');
+    
+        newPageOutput.setAttribute('id', 'newPageOutput');
+        newPageOutput.textContent = 'Pages: ' + myLibrary[i].pages;
+    
+        cardWrapper.appendChild(newCardPage);
+        newCardPage.appendChild(newPageOutput);
+
+        //Remove-Button
+        const removeCardButton = document.createElement('button');
+        removeCardButton.setAttribute('type', 'button');
+        removeCardButton.setAttribute('id', 'removeCardButton');
+        removeCardButton.textContent = 'Remove Book';
+        cardWrapper.appendChild(removeCardButton);
+
+        removeCardButton.onclick = function() {
+            removeCard(newCardTitle.textContent);
+            update();
+        }
+    }
+}
+
+//delete card
+function removeCard(parseTitle) {
+    console.log(parseTitle);
+    for(i=0; i<myLibrary.length;i++){
+        if(myLibrary[i].title == parseTitle){
+            myLibrary.splice(i,1);
+        }
+    }
 }
 
 //Element declaration
-
 const output = document.querySelector('#output');
 
 document.getElementById('createBook').onclick = function() {

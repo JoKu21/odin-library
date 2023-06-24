@@ -13,6 +13,12 @@
     --text-color-2: black;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* --------------- Header-Section --------------- */
 #header {
     background-color: var(--second-color);
@@ -21,6 +27,7 @@
     align-items: center;
     padding: 2rem;
     gap: 1rem;
+    width: 100%;
 }
 
 #header-img {
@@ -55,7 +62,8 @@
 }
 
 #createBook:hover,
-#newForm button:hover {
+#newForm button:hover,
+#removeCardButton:hover {
     background-color: var(--second-color);
     color: var(--text-color-1);
     border: 1px solid var(--text-color-2);
@@ -63,17 +71,19 @@
 }
 
 #createBook:active,
-#newForm button:active {
+#newForm button:active,
+#removeCardButton:active {
     box-shadow: 1px 1px 1px var(--first-color);
 }
 
 /* ----- Output-Section ----- */
 #output {
-    background-color: var(--fourth-color);
     width: 80vw;
     min-height: calc(100vh - 21rem);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 1rem;
 }
 
 /* ----- Formular ----- */
@@ -138,6 +148,60 @@
 
 
 /* ----- Card ----- */
+#card-wrapper {
+    height: 18rem;
+    width: 12rem;
+    border: 2px solid var(--first-color);
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px var(--second-color);
+    background-color: var(--fourth-color);
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--first-color);
+    position: relative;
+}
+
+#card-wrapper:last-of-type(button){
+    align-items: center;
+}
+
+#newTitleOutput {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#newAuthorOutput {
+    position: absolute;
+    bottom: 6rem;
+    display: block;
+    font-size: .75rem;
+    text-align: left;
+    border-top: 3px solid var(--first-color);
+    padding-top: .25rem;
+    width: 90%;
+}
+
+#newPageOutput {
+    position: absolute;
+    bottom: 4rem;
+    font-size: .8rem;
+}
+
+#removeCardButton {
+    margin: auto auto .5rem auto;
+    width: 6rem;
+
+    font-size: .8rem;
+    padding: .25rem;
+    border: 1px solid var(--second-color);
+    border-radius: 20px;
+    background-color: var(--text-color-1);
+    color: var(--first-color);
+}
+
+
+
 
 /* --------------- Footer-Section --------------- */
 #footer {
