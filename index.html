@@ -2,42 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Odin Library</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <title>Odin's Library</title>
 </head>
 <body>
-    <div id="container">
+    <!--------------- Header-Section --------------->
+    <header id="header">
+        <img src="images/bookshelf.svg" alt="bookshelf" id="header-img">
+        <h1 id="headline">Odin's Library</h1>
+    </header>
 
-        <div class="wrapper">
-            <!--Header-->
-            <div id="header">
-                    <img id="header-logo" src="images/bookshelf.svg" alt="bookshelf icon">
-                    <h1 id="website-title">Odin's Library</h1>
-            </div>
-            <!--Main: add books and show them responsive as cards-->
-            <div id="main">
-                <section class="button-section">
-                    <button id="addBook" onclick="createForm(title, author, pages, read)">+ add Book</button>
-                </section>
-                <section id="content-section">
-                </section>
-            </div>
-        </div>
-
+    <!--------------- Main-Section --------------->
+    <main id="main">
+        <button type="button" id="newBook">New Book</button>
         
-        <!--Footer-->
-        <div id="footer-wrapper">
-            <div id="footer">
-                <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/JoKu21/odin-library" target="
-                    ">joku.dev</a></p>
-            </div>
-        </div>
-    </div>
+        <!--Books will be visually placed here-->
+        <section id="output"></section>
+    </main>
+
+    <!--------------- Footer-Section --------------->
+    <footer id="footer">
+        <h2 id="footer-headline">2023 &copy; <a href="https://github.com/JoKu21" id="github-link" title="get to my GitHub-profile">jokudev</a></h2>
+    </footer>
 </body>
 </html>
