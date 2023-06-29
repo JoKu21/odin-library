@@ -2,23 +2,24 @@
 let myLibrary = [];
 
 //Initial example books
-addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695');
-addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720');
-addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69');
+addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695', 'true');
+addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720', 'true');
+addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69', 'false');
 
 
 //Book-Constructor
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   // the constructor...
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
   }
 
 //Function to push new Book to Library
-function addBookToLibrary(title, author, pages) {
+function addBookToLibrary(title, author, pages, read) {
   // do stuff here
-  const newBook = new Book(title, author, pages);
+  const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
 
@@ -96,6 +97,33 @@ function createForm() {
     newPage.appendChild(pageLabel);
     newPage.appendChild(pageInput);
 
+    //Read-Button
+    const readButtonWrapper = document.createElement('div');
+    const readButtonLabel = document.createElement('label');
+    const toggleWrapper = document.createElement('label');
+    const readButton = document.createElement('input');
+    const readButtonSpan = document.createElement('span');
+
+    readButtonWrapper.setAttribute('class', 'form-wrapper');
+
+    readButtonLabel.setAttribute('class', 'form-label');
+    readButtonLabel.textContent = 'Read: no / yes';
+
+    toggleWrapper.setAttribute('id', 'toggleWrapper');
+    toggleWrapper.setAttribute('class', 'switch');
+
+    readButton.setAttribute('id', 'readButton');
+    readButton.setAttribute('type', 'checkbox');
+
+    readButtonSpan.setAttribute('class', 'slider round');
+
+    newForm.appendChild(readButtonWrapper);
+    readButtonWrapper.appendChild(readButtonLabel);
+    readButtonWrapper.appendChild(toggleWrapper);
+    toggleWrapper.appendChild(readButton);
+    toggleWrapper.appendChild(readButtonSpan);
+
+
     //Create Buttons
     const formButtonWrapper = document.createElement('dib');
     const createBookButton = document.createElement('button');
@@ -132,11 +160,15 @@ function createForm() {
             createCard();
             update();
         }
-    }
+    
+    if(readButton.checked){
+        this.read = true;
+    } else this.read = false;
 
     cancelFormButton.onclick = function() {
         output.removeChild(newForm);
     }
+}
 }
 
 //Function Create Cards
@@ -184,6 +216,32 @@ function createCard() {
         cardWrapper.appendChild(newCardPage);
         newCardPage.appendChild(newPageOutput);
 
+        //Read-Button
+        const newReadButtonWrapper = document.createElement('div');
+        const newReadButtonLabel = document.createElement('p');
+        const newToggleWrapper = document.createElement('label');
+        const newToggleInput = document.createElement('input');
+        const newToggleSlider = document.createElement('span');
+
+        newReadButtonWrapper.setAttribute('class', 'card-wrapper newReadButtonWrapper');
+
+        newReadButtonLabel.setAttribute('class', 'newReadButtonLabel2');
+        newReadButtonLabel.textContent = 'Read: ';
+
+        newToggleWrapper.setAttribute('class', 'toggleWrappe2');
+        newToggleWrapper.setAttribute('class', 'switch');
+
+        newToggleInput.setAttribute('class', 'readToggleInput');
+        newToggleInput.setAttribute('type', 'checkbox');
+
+        newToggleSlider.setAttribute('class', 'slider round');
+
+        cardWrapper.appendChild(newReadButtonWrapper);
+        newReadButtonWrapper.appendChild(newReadButtonLabel);
+        newReadButtonWrapper.appendChild(newToggleWrapper);
+        newToggleWrapper.appendChild(newToggleInput);
+        newToggleWrapper.appendChild(newToggleSlider);
+
         //Remove-Button
         const removeCardButton = document.createElement('button');
         removeCardButton.setAttribute('type', 'button');
@@ -213,4 +271,12 @@ const output = document.querySelector('#output');
 
 document.getElementById('createBook').onclick = function() {
     createForm();
+}
+
+
+//function toggle
+function toggle(mode) {
+    if(mode == true){
+        return 'read'
+    } else return 'not read';
 }
