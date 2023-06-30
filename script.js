@@ -2,9 +2,9 @@
 let myLibrary = [];
 
 //Initial example books
-addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695', 'true');
-addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720', 'true');
-addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69', 'false');
+addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695', 'gelesen');
+addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720', 'nicht gelesen');
+addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69', 'gelesen');
 
 
 //Book-Constructor
@@ -237,6 +237,23 @@ function createCard() {
 
         newToggleInput.setAttribute('class', 'readToggleInput');
         newToggleInput.setAttribute('type', 'checkbox');
+
+        if(myLibrary[i].read == 'gelesen'){
+            newToggleInput.setAttribute('checked','');
+        }
+
+        newToggleInput.onclick = function() {
+            for(i=0; i<myLibrary.length;i++) {
+                if(myLibrary[i].read == 'nicht gelesen' && newToggleInput.checked){
+                    myLibrary[i].read = 'gelesen';
+                    break;
+                } else {
+                    myLibrary[i].read = 'nicht gelesen';
+                }
+            }
+            
+            console.dir(myLibrary);
+        }
 
         newToggleSlider.setAttribute('class', 'slider round');
 
