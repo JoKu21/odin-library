@@ -155,21 +155,25 @@ function createForm() {
             pageInput.focus();
             pageInput.style.cssText ='background: red';
         } else {
-            addBookToLibrary(titleInput.value, authorInput.value, pageInput.value);
+            let variable = '';
+            if(readButton.checked){
+                variable = 'gelesen';
+            } else{
+                variable = 'nicht gelesen'
+            }
+            addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, variable);
             output.removeChild(newForm);
             createCard();
             update();
         }
-    
-    if(readButton.checked){
-        this.read = true;
-    } else this.read = false;
+    }
+
 
     cancelFormButton.onclick = function() {
         output.removeChild(newForm);
     }
 }
-}
+
 
 //Function Create Cards
 function createCard() {
