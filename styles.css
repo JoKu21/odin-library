@@ -90,8 +90,7 @@ body {
 #newForm {
     border: 2px solid var(--first-color);
     background-color: var(--fourth-color);
-    min-height: 20rem;
-    max-height: 25rem;
+    height: 22rem;
     width: 15rem;
     border-radius: 20px;
 
@@ -249,7 +248,7 @@ body {
 }
 
 #removeCardButton {
-    margin: auto auto .5rem auto;
+    margin: auto auto .25rem auto;
     width: 6rem;
 
     font-size: .8rem;

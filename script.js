@@ -243,15 +243,26 @@ function createCard() {
         }
 
         newToggleInput.onclick = function() {
-            for(i=0; i<myLibrary.length;i++) {
-                if(myLibrary[i].read == 'nicht gelesen' && newToggleInput.checked){
-                    myLibrary[i].read = 'gelesen';
-                    break;
+            for(i=0; i<myLibrary.length; i++) {
+                
+                if(newToggleInput.checked){
+                    if(myLibrary[i].title == newTitleOutput.textContent && myLibrary[i].read == 'nicht gelesen'){
+                        if(myLibrary[i].title == newTitleOutput.textContent) {
+                            myLibrary[i].read = 'gelesen';
+                        }
+                    } 
                 } else {
-                    myLibrary[i].read = 'nicht gelesen';
+                    if(myLibrary[i].title == newTitleOutput.textContent && myLibrary[i].read == 'gelesen'){
+                        if(myLibrary[i].title == newTitleOutput.textContent) {
+                            myLibrary[i].read = 'nicht gelesen';
+                        }
+                    }
                 }
+                
+                
+                
+
             }
-            
             console.dir(myLibrary);
         }
 
