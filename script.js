@@ -1,12 +1,6 @@
 //Initial Array
 let myLibrary = [];
 
-//Initial example books
-addBookToLibrary('Herr der Ringe - Die Gefährten','J.R.R. Tolkien','695', 'gelesen');
-addBookToLibrary('Harry Potter - und die Kammer des Schreckens','J.K. Rowling','720', 'nicht gelesen');
-addBookToLibrary('Der Herr der Inge und das schmutzige Dutzend','JFCK Coop LLC','69', 'gelesen');
-
-
 //Book-Constructor
 function Book(title, author, pages, read) {
   // the constructor...
